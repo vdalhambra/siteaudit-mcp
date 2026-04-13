@@ -1,18 +1,38 @@
+[![PyPI version](https://img.shields.io/pypi/v/siteaudit-mcp)](https://pypi.org/project/siteaudit-mcp/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+
 # SiteAudit MCP
 
-**Instant SEO, Performance, and Security Audits for AI Agents** — analyze any URL with a single tool call via the Model Context Protocol.
+**Instant SEO, Performance, and Security Audits for AI Agents** — analyze any URL with a single tool call via the Model Context Protocol (MCP).
 
-## What it does
+SiteAudit is an MCP server that gives Claude Code, Cursor, Windsurf, and any AI agent the ability to audit any website instantly. No API keys, no configuration, no cost. The complete website audit toolkit for AI-powered development.
 
-SiteAudit gives your AI agent the ability to audit any website instantly. No API keys, no configuration, no cost. Just ask:
+## Use Cases
 
-- "Audit example.com"
-- "Check the SEO of my competitor's site"
-- "Is my site secure? Check the security headers"
-- "Compare my site vs 3 competitors"
-- "Show me the robots.txt for this domain"
+Here are concrete examples of what you can ask your AI agent once SiteAudit is installed:
 
-## Tools (6)
+- **"Audit example.com and give me a prioritized list of SEO fixes"** — Full SEO audit with title tags, meta descriptions, headings, structured data, Open Graph, and actionable recommendations
+- **"Check the security headers on my production site"** — HTTPS, HSTS, CSP, X-Frame-Options, cookie flags, SSL certificate validity, and server disclosure
+- **"Compare my site vs 3 competitors side-by-side"** — Multi-site comparison with scores for SEO, performance, and security across all sites
+- **"Run a Lighthouse audit on my homepage"** — Google PageSpeed Insights performance, accessibility, best practices, and SEO scores
+- **"Find all broken links on my site"** — Crawl internal and external links, report 404s, redirects, and unreachable URLs
+- **"Check if my robots.txt is blocking anything important"** — Parse robots.txt rules, find sitemap references, and identify potential crawl issues
+
+## Why SiteAudit?
+
+| Feature | SiteAudit MCP | Ahrefs | Screaming Frog | Google Lighthouse |
+|---------|--------------|--------|----------------|-------------------|
+| Works with Claude Code / Cursor | Yes | No | No | CLI only |
+| No API key needed | Yes | No ($99/mo) | Free (limited) | Yes |
+| SEO + Security + Performance | All three | SEO only | SEO only | Performance only |
+| AI-native (MCP protocol) | Yes | REST API | Desktop app | CLI / API |
+| Broken link checker | Yes | Yes | Yes | No |
+| Lighthouse integration | Yes | No | No | It is Lighthouse |
+| Multi-site comparison | Yes | Manual | Manual | Manual |
+| Free | Yes | $99+/mo | Free (500 URLs) | Yes |
+
+## Tools (8)
 
 | Tool | Description |
 |------|-------------|
@@ -21,11 +41,21 @@ SiteAudit gives your AI agent the ability to audit any website instantly. No API
 | `security_audit` | Security headers, HTTPS, HSTS, CSP, SSL certificate check, cookie flags |
 | `performance_audit` | Response time, page size, compression, caching, redirects |
 | `compare_sites` | Side-by-side comparison of multiple websites |
-| `check_robots_txt` | Parse and analyze robots.txt rules and sitemaps |
+| `lighthouse_audit` | Google PageSpeed Insights: performance, accessibility, best practices, SEO |
+| `check_links` | Crawl and validate all links on a page — find broken links, redirects, timeouts |
+| `check_robots_txt` | Parse and analyze robots.txt rules, directives, and sitemaps |
 
 ## Installation
 
-### Claude Code / Claude Desktop
+### Claude Code (recommended)
+
+```bash
+claude mcp add siteaudit -- uvx --from siteaudit-mcp siteaudit
+```
+
+### Claude Desktop / Cursor / Windsurf
+
+Add to your MCP configuration (`claude_desktop_config.json`, `.cursor/mcp.json`, etc.):
 
 ```json
 {
@@ -36,6 +66,31 @@ SiteAudit gives your AI agent the ability to audit any website instantly. No API
     }
   }
 }
+```
+
+### Install via Smithery
+
+```bash
+npx -y @smithery/cli install @vdalhambra/siteaudit --client claude
+```
+
+### Install via MCPize (hosted, no local install)
+
+```json
+{
+  "mcpServers": {
+    "siteaudit": {
+      "url": "https://siteaudit-mcp.mcpize.run/mcp"
+    }
+  }
+}
+```
+
+### From PyPI
+
+```bash
+pip install siteaudit-mcp
+siteaudit
 ```
 
 ### From source
@@ -49,8 +104,8 @@ uv run siteaudit
 
 ## What it checks
 
-### SEO (20+ checks)
-- Title tag (presence, length)
+### SEO Audit (20+ checks)
+- Title tag (presence, length optimization)
 - Meta description (presence, length)
 - H1 tag (count, content)
 - Heading hierarchy (H1-H6)
@@ -66,7 +121,7 @@ uv run siteaudit
 - robots meta directives
 - Content length (word count)
 
-### Security (10+ checks)
+### Security Audit (10+ checks)
 - HTTPS enforcement
 - HSTS header (with subdomains and preload)
 - Content-Security-Policy
@@ -78,13 +133,20 @@ uv run siteaudit
 - Cookie security flags (Secure, HttpOnly, SameSite)
 - SSL certificate validity and expiration
 
-### Performance
+### Performance Audit
 - Server response time (ms)
 - Page size (KB)
 - Compression (gzip/brotli)
 - Cache-Control headers
 - Redirect chain analysis
 - HTTP status code
+
+### Lighthouse Audit (via Google PageSpeed Insights)
+- Performance score
+- Accessibility score
+- Best practices score
+- SEO score
+- Core Web Vitals (FCP, LCP, TBT, CLS)
 
 ## Example Output
 
@@ -110,6 +172,18 @@ SiteAudit works entirely by analyzing the HTML and HTTP headers of the target UR
 - `requests` for HTTP fetching
 - `BeautifulSoup` for HTML parsing
 - Python `ssl` for certificate checking
+- Google PageSpeed Insights API (free, no key required for basic usage)
+
+## Compatible AI Agents
+
+SiteAudit works with any AI agent or IDE that supports the Model Context Protocol:
+
+- **Claude Code** (CLI) — `claude mcp add`
+- **Claude Desktop** — `claude_desktop_config.json`
+- **Cursor** — `.cursor/mcp.json`
+- **Windsurf** — MCP settings
+- **Copilot** — MCP configuration
+- **Any MCP client** — stdio or HTTP transport
 
 ## License
 
