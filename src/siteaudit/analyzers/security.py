@@ -93,9 +93,9 @@ def analyze_security(url: str, resp) -> dict:
     # SSL Certificate check
     ssl_info = _check_ssl_cert(url)
 
-    # Calculate score
+    # Calculate score — issues are critical, warnings are minor
     max_score = 100
-    score = max_score - (len(issues) * 15) - (len(warnings) * 5)
+    score = max_score - (len(issues) * 15) - (len(warnings) * 3)
     score = max(0, min(100, score))
 
     return {
@@ -126,7 +126,9 @@ def _check_ssl_cert(url: str) -> dict | None:
 
     try:
         context = ssl.create_default_context()
-        with socket.create_connection((hostname, 443), timeout=5) as sock:
+        context.check_hostname = True
+        context.verify_mode = ssl.CERT_REQUIRED
+        with socket.create_connection((hostname, 443), timeout=10) as sock:
             with context.wrap_socket(sock, server_hostname=hostname) as ssock:
                 cert = ssock.getpeercert()
                 protocol = ssock.version()

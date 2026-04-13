@@ -8,6 +8,7 @@ from fastmcp.exceptions import ToolError
 from siteaudit.utils.fetcher import fetch_page, fetch_url, get_domain
 from siteaudit.analyzers.seo import analyze_seo
 from siteaudit.analyzers.security import analyze_security
+from siteaudit.analyzers.pagespeed import analyze_pagespeed
 from siteaudit.analyzers.performance import analyze_performance
 
 
@@ -172,6 +173,25 @@ def register_audit_tools(mcp: FastMCP) -> None:
             "best_overall": best,
             "comparison": results,
         }
+
+    @mcp.tool(
+        tags={"audit", "performance", "lighthouse"},
+        annotations={"readOnlyHint": True},
+    )
+    def lighthouse_audit(
+        url: Annotated[str, Field(description="URL to audit with Google Lighthouse")],
+        strategy: Annotated[str, Field(description="'mobile' or 'desktop' (default: mobile)")] = "mobile",
+    ) -> dict:
+        """Run Google Lighthouse via PageSpeed Insights API — get performance, accessibility, SEO, and best-practices scores plus Core Web Vitals (LCP, INP, CLS).
+
+        Returns Lighthouse scores (0-100), Core Web Vitals with ratings,
+        and the top 5 performance optimization opportunities ranked by potential time savings.
+        This uses Google's real Lighthouse engine — the same tool Chrome DevTools uses.
+        Takes 15-30 seconds to complete.
+        """
+        result = analyze_pagespeed(url, strategy)
+        result["url"] = url
+        return result
 
     @mcp.tool(
         tags={"audit", "check"},
