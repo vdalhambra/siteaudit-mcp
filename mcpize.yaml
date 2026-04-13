@@ -5,5 +5,4 @@ runtime: python
 entrypoint: src/siteaudit/server.py
 install:
   - pip install -r requirements.txt
-  - pip install -e .
-start: python -m siteaudit.server
+start: PYTHONPATH=/app/src python /app/src/siteaudit/server.py
