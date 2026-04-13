@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from fastmcp import FastMCP
 
 from siteaudit.tools.audit import register_audit_tools
+from siteaudit.tools.premium import register_premium_tools
 
 mcp = FastMCP(
     name="SiteAudit",
@@ -23,11 +24,12 @@ mcp = FastMCP(
         "You can audit a single URL or compare multiple sites side by side. "
         "Just provide a URL like 'example.com' — no API keys needed."
     ),
-    version="1.0.0",
+    version="1.2.0",
     mask_error_details=True,
 )
 
 register_audit_tools(mcp)
+register_premium_tools(mcp)
 
 
 def main():

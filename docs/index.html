@@ -74,7 +74,11 @@
     <div class="hero">
         <h1>SiteAudit MCP</h1>
         <p>Instant SEO, Performance, and Security Audits for AI Agents — analyze any URL with a single tool call via the Model Context Protocol.</p>
-        <div class="install">uvx --from siteaudit-mcp siteaudit</div>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 16px;">
+            <a href="https://mcpize.com/mcp/siteaudit-mcp" style="display:inline-block; background:#a8e6cf; color:#0a2e1f; padding:16px 36px; border-radius:10px; text-decoration:none; font-weight:700; font-size:1.05rem; box-shadow:0 4px 14px rgba(168,230,207,0.3);">🚀 Install Free on MCPize</a>
+            <a href="https://github.com/vdalhambra/siteaudit-mcp" style="display:inline-block; background:transparent; color:white; padding:16px 32px; border-radius:10px; text-decoration:none; font-weight:600; border:2px solid rgba(255,255,255,0.3); font-size:1rem;">View on GitHub</a>
+        </div>
+        <p style="font-size: 0.9rem; margin-top: 24px; opacity: 0.75;">Free tier: 100 audits/month — no credit card</p>
     </div>
 
     <div class="container">
@@ -162,47 +166,82 @@
     <div class="pricing">
         <div class="container" style="padding-top:0;padding-bottom:0;">
             <h2>Pricing</h2>
-            <div class="plans">
+            <p style="text-align:center; color:#555; margin-bottom: 24px;">Start free. Upgrade when you need more audits or premium tools.</p>
+            <div class="plans" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); max-width: 1000px;">
                 <div class="plan">
                     <h3>Free</h3>
                     <div class="price">$0<span>/mo</span></div>
                     <ul>
-                        <li>Install via PyPI</li>
-                        <li>All 8 tools included</li>
-                        <li>Unlimited local usage</li>
-                        <li>Open source (MIT)</li>
+                        <li>100 audits/month</li>
+                        <li>Basic full audit</li>
+                        <li>SEO, security, perf</li>
+                        <li>No Lighthouse</li>
                     </ul>
+                    <a href="https://mcpize.com/mcp/siteaudit-mcp" style="display:inline-block; margin-top: 12px; padding: 10px 20px; background: #1a7a50; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Get started</a>
                 </div>
                 <div class="plan featured">
-                    <h3>Pro</h3>
-                    <div class="price">$14<span>/mo</span></div>
+                    <h3>Pro ⭐</h3>
+                    <div class="price">$19<span>/mo</span></div>
                     <ul>
-                        <li>Hosted on MCPize</li>
-                        <li>10,000 requests/month</li>
-                        <li>No local install needed</li>
-                        <li>Always up to date</li>
+                        <li>10,000 audits/month</li>
+                        <li>All 8 tools</li>
+                        <li>Full Lighthouse</li>
+                        <li>Priority response</li>
+                        <li>Premium v1.2 tools</li>
                     </ul>
+                    <a href="https://mcpize.com/mcp/siteaudit-mcp" style="display:inline-block; margin-top: 12px; padding: 10px 20px; background: #1a7a50; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Start Pro</a>
                 </div>
                 <div class="plan">
                     <h3>Agency</h3>
-                    <div class="price">$39<span>/mo</span></div>
+                    <div class="price">$49<span>/mo</span></div>
                     <ul>
-                        <li>Hosted on MCPize</li>
-                        <li>50,000 requests/month</li>
-                        <li>Priority support</li>
-                        <li>Team usage</li>
+                        <li>50,000 audits/month</li>
+                        <li>10 saved sites</li>
+                        <li>Scheduled audits</li>
+                        <li>Email alerts</li>
+                        <li>CSV export</li>
                     </ul>
+                    <a href="https://mcpize.com/mcp/siteaudit-mcp" style="display:inline-block; margin-top: 12px; padding: 10px 20px; background: #1a7a50; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Choose Agency</a>
+                </div>
+                <div class="plan">
+                    <h3>Agency Plus</h3>
+                    <div class="price">$119<span>/mo</span></div>
+                    <ul>
+                        <li>200,000 audits/month</li>
+                        <li>White-label PDF</li>
+                        <li>25 team seats</li>
+                        <li>Full site crawler</li>
+                        <li>WCAG checks</li>
+                    </ul>
+                    <a href="https://mcpize.com/mcp/siteaudit-mcp" style="display:inline-block; margin-top: 12px; padding: 10px 20px; background: #1a7a50; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Upgrade</a>
                 </div>
             </div>
+            <p style="text-align:center; margin-top: 20px; color:#555;">Enterprise ($349/mo) with on-prem deployment and SLA — <a href="mailto:victor@siteaudit.dev" style="color:#1a7a50;">contact us</a></p>
+            <p style="text-align:center; margin-top: 12px; color:#555;"><strong>Bundle:</strong> Combine with <a href="https://vdalhambra.github.io/financekit-mcp/" style="color:#1a7a50;">FinanceKit MCP</a> for $39/mo (save 19%)</p>
+            <details style="max-width:700px; margin: 40px auto 0; background: white; border-radius: 12px; padding: 20px 28px;">
+                <summary style="cursor:pointer; font-weight: 600; color: #155e3d;">Developer option: self-hosted install</summary>
+                <p style="margin-top: 12px; color:#555;">Prefer to run locally? The server is open source (MIT) and free to self-host.</p>
+                <pre style="background:#0a2e1f; color:#a8e6cf; padding: 16px; border-radius: 6px; overflow-x:auto; font-size: 0.85rem; margin-top:12px;"># Claude Code
+claude mcp add siteaudit -- uvx --from siteaudit-mcp siteaudit
+
+# Or via config
+{
+  "mcpServers": {
+    "siteaudit": {
+      "command": "uvx",
+      "args": ["--from", "siteaudit-mcp", "siteaudit"]
+    }
+  }
+}</pre>
+                <p style="margin-top: 12px; font-size: 0.9rem; color:#666;">All install options on <a href="https://github.com/vdalhambra/siteaudit-mcp#installation" style="color:#1a7a50;">GitHub</a>.</p>
+            </details>
         </div>
     </div>
 
     <div class="cta">
-        <h2>Get Started</h2>
-        <a href="https://github.com/vdalhambra/siteaudit-mcp">GitHub</a>
-        <a href="https://pypi.org/project/siteaudit-mcp/">PyPI</a>
-        <a href="https://mcpize.com/mcp/siteaudit-mcp">MCPize</a>
-        <a href="https://smithery.ai/server/vdalhambra/siteaudit">Smithery</a>
+        <h2>Ready to audit websites with AI?</h2>
+        <a href="https://mcpize.com/mcp/siteaudit-mcp">Start Free on MCPize</a>
+        <a href="https://github.com/vdalhambra/siteaudit-mcp" style="background: transparent; color: #1a7a50; border: 2px solid #1a7a50;">View on GitHub</a>
     </div>
 
     <footer>

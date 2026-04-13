@@ -50,34 +50,13 @@ Here are concrete examples of what you can ask your AI agent once SiteAudit is i
 
 ## Installation
 
-### Claude Code (recommended)
+### ⭐ Recommended: MCPize (hosted, no setup)
 
-```bash
-claude mcp add siteaudit -- uvx --from siteaudit-mcp siteaudit
-```
+The fastest way to get started. No terminal, no config files, no Python setup — works in any MCP client:
 
-### Claude Desktop / Cursor / Windsurf
+👉 **[Install SiteAudit on MCPize](https://mcpize.com/mcp/siteaudit-mcp)** — Free tier available (100 audits/month)
 
-Add to your MCP configuration (`claude_desktop_config.json`, `.cursor/mcp.json`, etc.):
-
-```json
-{
-  "mcpServers": {
-    "siteaudit": {
-      "command": "uvx",
-      "args": ["--from", "siteaudit-mcp", "siteaudit"]
-    }
-  }
-}
-```
-
-### Install via Smithery
-
-```bash
-npx -y @smithery/cli install @vdalhambra/siteaudit --client claude
-```
-
-### Install via MCPize (hosted, no local install)
+Or add to your MCP config directly:
 
 ```json
 {
@@ -89,14 +68,55 @@ npx -y @smithery/cli install @vdalhambra/siteaudit --client claude
 }
 ```
 
-### From PyPI
+**Why MCPize?**
+- ✅ Zero setup — works immediately in Claude Desktop, Cursor, Windsurf, Claude Code
+- ✅ Always up-to-date — new SEO checks and features added continuously
+- ✅ Scales with you — upgrade to Pro ($19/mo) for 10,000 audits + full Lighthouse + priority
+- ✅ No rate limits on PageSpeed API — we handle the Google quota for you
+- ✅ Reliable uptime — managed cloud infrastructure
+
+See [pricing](#pricing) below for all tiers including Agency and Enterprise.
+
+---
+
+### 💻 Advanced: Self-hosted (developers)
+
+For those who prefer to run the server locally:
+
+<details>
+<summary><b>Claude Code CLI</b></summary>
+
+```bash
+claude mcp add siteaudit -- uvx --from siteaudit-mcp siteaudit
+```
+</details>
+
+<details>
+<summary><b>Claude Desktop / Cursor / Windsurf (local)</b></summary>
+
+```json
+{
+  "mcpServers": {
+    "siteaudit": {
+      "command": "uvx",
+      "args": ["--from", "siteaudit-mcp", "siteaudit"]
+    }
+  }
+}
+```
+</details>
+
+<details>
+<summary><b>From PyPI</b></summary>
 
 ```bash
 pip install siteaudit-mcp
 siteaudit
 ```
+</details>
 
-### From source
+<details>
+<summary><b>From source</b></summary>
 
 ```bash
 git clone https://github.com/vdalhambra/siteaudit-mcp.git
@@ -104,6 +124,36 @@ cd siteaudit-mcp
 uv sync
 uv run siteaudit
 ```
+</details>
+
+<details>
+<summary><b>Smithery</b></summary>
+
+```bash
+npx -y @smithery/cli install @vdalhambra/siteaudit --client claude
+```
+</details>
+
+> **Note:** Self-hosted = full feature access but you manage updates, uptime, and Google PageSpeed quotas. For most users, MCPize is the better choice.
+
+---
+
+## Pricing
+
+| Tier | Price | Audits/month | Includes |
+|------|-------|--------------|----------|
+| **Free** | $0 | 100 | Basic audit (no Lighthouse) |
+| **Hobby** | $7/mo | 2,500 | Full audit without site comparison |
+| **Pro** ⭐ | $19/mo | 10,000 | All 8 tools + full Lighthouse + priority |
+| **Agency** | $49/mo | 50,000 | Pro + 10 saved sites + scheduled audits |
+| **Agency Plus** | $119/mo | 200,000 | Agency + white-label PDF reports + 25 seats |
+| **Enterprise** | $349/mo | Unlimited | Agency Plus + on-prem + custom integrations + SLA |
+
+**Annual plans:** Get 2 months free (pay for 10, use 12).
+
+**Bundle:** Combine with [FinanceKit MCP](https://github.com/vdalhambra/financekit-mcp) for **$39/mo** (Pro Combo — save 19%).
+
+👉 **[View all pricing on MCPize](https://mcpize.com/mcp/siteaudit-mcp)**
 
 ## What it checks
 
@@ -187,6 +237,15 @@ SiteAudit works with any AI agent or IDE that supports the Model Context Protoco
 - **Windsurf** — MCP settings
 - **Copilot** — MCP configuration
 - **Any MCP client** — stdio or HTTP transport
+
+## Support this project
+
+If SiteAudit is useful to you, please consider supporting ongoing development:
+
+- 💎 **[Upgrade to Pro on MCPize](https://mcpize.com/mcp/siteaudit-mcp)** — Best way to support + get priority access
+- ⭐ **Star this repo** — Helps other developers find it
+- 💖 **[Sponsor on GitHub](https://github.com/sponsors/vdalhambra)** — One-time or recurring support
+- 🐦 **Share on Twitter/X** — Tag [@ElAgenteRayo](https://twitter.com/ElAgenteRayo)
 
 ## License
 
