@@ -11,6 +11,8 @@
 
 SiteAudit is an MCP server that gives Claude Code, Cursor, Windsurf, and any AI agent the ability to audit any website instantly. No API keys, no configuration, no cost. The complete website audit toolkit for AI-powered development.
 
+> **Try it now — no install needed:** [Open SiteAudit in the MCPize Playground](https://mcpize.com/mcp/siteaudit-mcp/playground) — runs in your browser, free tier (100 audits/month)
+
 ## Use Cases
 
 Here are concrete examples of what you can ask your AI agent once SiteAudit is installed:
